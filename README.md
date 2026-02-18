@@ -1,109 +1,93 @@
-# ft_irc - Internet Relay Chat Server 💬
+Voici une version optimisée de ton README.md, regroupée en un seul bloc cohérent, avec des icônes mises à jour et une mise en page plus propre pour les sections de compilation et de commandes.
+# ft_irc - Internet Relay Chat Server 📡
 
-Implémentation d’un serveur **IRC (Internet Relay Chat)** en **C++98**, réalisée dans le cadre du cursus de l’:contentReference[oaicite:0]{index=0}.
+Une implémentation complète d'un serveur IRC en C++98, développée dans le cadre du cursus de l'école 42.
+📖 Description
 
-Repository : https://github.com/myc42/irc
+ft_irc est un serveur de messagerie instantanée respectant le protocole IRC (RFC 1459 & 2812). L'enjeu est de gérer des communications en temps réel via des sockets TCP, sans multi-threading.
+🚀 Fonctionnalités :
 
----
+    Multiplexage d'E/S : Gestion simultanée des clients avec poll().
 
-## 📌 Description
+    Gestion des Channels : Création, jonction (JOIN) et messagerie par canal.
 
-**ft_irc** est une implémentation d’un serveur IRC respectant le protocole IRC.
+    Messagerie : Support des messages privés (PRIVMSG) et de groupe.
 
-Le serveur :
+    Sécurité : Authentification par mot de passe obligatoire.
 
-- Gère plusieurs clients simultanément
-- Permet la création et la gestion de channels
-- Supporte les messages privés et publics
-- Implémente une authentification par mot de passe
-- Gère les permissions et opérateurs
+    Administration : Gestion des privilèges opérateurs et des modes.
 
-L’objectif du projet est de comprendre en profondeur la programmation réseau bas niveau et le fonctionnement d’un serveur multi-clients en respectant des contraintes strictes en **C++98**.
+🧠 Défis Techniques
 
----
+Le projet repose sur une architecture robuste utilisant exclusivement les outils de la norme C++98 :
 
-## 📥 Installation
+    Non-blocking Sockets : Utilisation de fcntl pour garantir que le serveur ne reste jamais bloqué sur une lecture ou une écriture.
 
-```bash
+    Poll() System : Surveillance constante de l'état des descripteurs de fichiers (lecture/écriture/erreurs).
+
+    Buffer Management : Gestion manuelle des buffers pour traiter les messages fragmentés ou multiples reçus en une seule lecture.
+
+🛠️ Installation et Utilisation
+📥 Clonage du projet
+Bash
+
 git clone https://github.com/myc42/irc.git
 cd irc
-```
 
----
+⚙️ Compilation
 
-## ⚙️ Compilation
+Le projet se compile via un Makefile rigoureux :
+Bash
 
-```bash
-make
-```
+make        # Compile l'exécutable 'ircserv'
+make clean  # Supprime les fichiers objets
+make fclean # Supprime tout, y compris l'exécutable
+make re     # Recompile l'intégralité du projet
 
----
+⚡ Lancement
 
-## 🚀 Lancement
+Le serveur nécessite un port et un mot de passe pour démarrer :
+Bash
 
-```bash
-make 1
-```
+# Syntaxe : ./ircserv <port> <password>
+./ircserv 6667 mon_password_secret
 
-Configuration par défaut :
+💬 Connexion des clients
 
-- **Port** : `6667`
-- **Mot de passe** : `0`
+Vous pouvez utiliser n'importe quel client IRC pour vous connecter.
+Option A : Irssi (Recommandé) 🛡️
+Bash
 
----
-
-## 💬 Connexion
-
-Le serveur peut être testé avec :
-
-### 🟢 :contentReference[oaicite:1]{index=1}
-
-```bash
 irssi
-/connect 127.0.0.1 6667 0
-```
+/connect localhost 6667 mon_password_secret
 
-### 🟢 :contentReference[oaicite:2]{index=2}
+Option B : Netcat (Debug) 📟
+Bash
 
-```bash
-nc 127.0.0.1 6667
-```
+nc localhost 6667
+PASS mon_password_secret
+NICK mon_pseudo
+USER guest 0 * :realname
 
----
+📜 Commandes Implémentées
+Commande	Action
+PASS	Vérification du mot de passe serveur
+NICK	Définition ou changement de pseudonyme
+USER	Configuration de l'identité utilisateur
+JOIN	Rejoindre un canal de discussion
+PART	Quitter un canal
+PRIVMSG	Envoyer un message privé ou canal
+KICK	Expulser un utilisateur (Opérateur)
+INVITE	Inviter un utilisateur dans un canal
+TOPIC	Définir ou voir le sujet du canal
+MODE	Gérer les privilèges et droits d'accès
+QUIT	Fermer la connexion proprement
+👥 Équipe (Auteurs)
 
-## 🧠 Défis techniques
+Ce projet a été réalisé avec passion par :
 
-- Utilisation de `poll()` pour le multiplexage d’E/S
-- Gestion des sockets en mode non-bloquant
-- Aucune utilisation de threads
-- Respect strict du standard C++98 (pas de C++11+)
-- Aucune bibliothèque externe
+    myc42 (GitHub)
 
----
+    kamneh18
 
-## 🧩 Commandes implémentées
-
-- `PASS`
-- `NICK`
-- `USER`
-- `JOIN`
-- `PART`
-- `PRIVMSG`
-- `QUIT`
-
----
-
-## 🛠 Technologies utilisées
-
-- **C++98**
-- Sockets BSD (TCP)
-- `poll()`
-- Makefile
-
----
-
-## 👥 Auteurs
-
-- myc42  
-- kamel  
-- younes  
+    leblitzer
