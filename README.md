@@ -1,9 +1,11 @@
 # ft_irc - Internet Relay Chat Server 📡
 
-Une implémentation complète d'un serveur IRC en C++98, développée dans le cadre du cursus de l'école 42.
+Une implémentation complète d'un serveur IRC en C++98, développée dans le cadre du cursus de l'école 42. </br>
+
 📖 Description
 
 ft_irc est un serveur de messagerie instantanée respectant le protocole IRC (RFC 1459 & 2812). L'enjeu est de gérer des communications en temps réel via des sockets TCP, sans multi-threading.
+
 🚀 Fonctionnalités :
 
 Multiplexage d'E/S : Gestion simultanée des clients avec poll().
@@ -27,11 +29,10 @@ Poll() System : Surveillance constante de l'état des descripteurs de fichiers (
 Buffer Management : Gestion manuelle des buffers pour traiter les messages fragmentés ou multiples reçus en une seule lecture.
 
 🛠️ Installation et Utilisation
-📥 Clonage du projet
-Bash
 
-git clone https://github.com/myc42/irc.git </br>
-cd irc </br>
+     Clonage du projet
+      git clone https://github.com/myc42/irc.git 
+      cd irc 
 
 ⚙️ Compilation
 
