@@ -36,57 +36,57 @@ cd irc </br>
 ⚙️ Compilation
 
 Le projet se compile via un Makefile rigoureux :
-Bash
 
-make        # Compile l'exécutable 'ircserv'
-make clean  # Supprime les fichiers objets
-make fclean # Supprime tout, y compris l'exécutable
-make re     # Recompile l'intégralité du projet
+
+    make       
+    make clean  
+    make fclean 
+    make re    
 
 ⚡ Lancement
 
 Le serveur nécessite un port et un mot de passe pour démarrer :
-Bash
 
-# Syntaxe : ./ircserv <port> <password>
-./ircserv 6667 password (0)
+
+    # Syntaxe : ./ircserv <port> <password>
+    ./ircserv 6667 password (0)
 
 💬 Connexion des clients
 
 Vous pouvez utiliser n'importe quel client IRC pour vous connecter.
 Option A : Irssi (Recommandé) 🛡️
-Bash
 
-irssi
-/connect localhost 6667 password (0)
+
+    irssi
+    /connect localhost 6667 password (0)
 
 Option B : Netcat (Debug) 📟
-Bash
 
-nc localhost 6667
-PASS mon_password_secret
-NICK mon_pseudo
-USER guest 0 * :realname
+
+    nc localhost 6667
+    PASS 0
+    NICK mon_pseudo
+    USER guest 0 * :realname
 
 📜 Commandes Implémentées
 Commande	Action
-PASS	Vérification du mot de passe serveur
-NICK	Définition ou changement de pseudonyme
-USER	Configuration de l'identité utilisateur
-JOIN	Rejoindre un canal de discussion
-PART	Quitter un canal
-PRIVMSG	Envoyer un message privé ou canal
-KICK	Expulser un utilisateur (Opérateur)
-INVITE	Inviter un utilisateur dans un canal
-TOPIC	Définir ou voir le sujet du canal
-MODE	Gérer les privilèges et droits d'accès
-QUIT	Fermer la connexion proprement
+        PASS	Vérification du mot de passe serveur </br>
+        NICK	Définition ou changement de pseudonyme </br>
+        USER	Configuration de l'identité utilisateur </br> 
+        JOIN	Rejoindre un canal de discussion </br>
+        PART	Quitter un canal </br> 
+        PRIVMSG	Envoyer un message privé ou canal </br> 
+        KICK	Expulser un utilisateur (Opérateur) </br> 
+        INVITE	Inviter un utilisateur dans un canal </br> 
+        TOPIC	Définir ou voir le sujet du canal </br> 
+        MODE	Gérer les privilèges et droits d'accès </br>
+        QUIT	Fermer la connexion proprement </br> 
 👥 Équipe (Auteurs)
 
 Ce projet a été réalisé avec passion par :
 
-    myc42 (GitHub)
+myc42 (GitHub)
 
-    kamneh18
+kamneh18
 
-    leblitzer
+leblitzer
