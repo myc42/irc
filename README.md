@@ -69,7 +69,9 @@ Option B : Netcat (Debug) 📟
     USER guest 0 * :realname
 
 📜 Commandes Implémentées
-Commande	Action
+
+ 
+        Commande	Action
         PASS	Vérification du mot de passe serveur </br>
         NICK	Définition ou changement de pseudonyme </br>
         USER	Configuration de l'identité utilisateur </br> 
