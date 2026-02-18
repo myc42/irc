@@ -1,4 +1,3 @@
-Voici une version optimisée de ton README.md, regroupée en un seul bloc cohérent, avec des icônes mises à jour et une mise en page plus propre pour les sections de compilation et de commandes.
 # ft_irc - Internet Relay Chat Server 📡
 
 Une implémentation complète d'un serveur IRC en C++98, développée dans le cadre du cursus de l'école 42.
